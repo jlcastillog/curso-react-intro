@@ -1,3 +1,3 @@
 export function CreateTodoButton() {
-  return <button>Crear</button>;
+  return <button>+</button>;
 }
