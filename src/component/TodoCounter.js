@@ -1,3 +1,3 @@
-export function TodoCounter() {
-  return <h1>Has completado 3 de 5 TODOS</h1>;
+export function TodoCounter({nCompleted, totalCount}) {
+  return <h1>Has completado {nCompleted} de {totalCount} TODOS</h1>;
 }
