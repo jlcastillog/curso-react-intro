@@ -1,8 +1,8 @@
-export function TodoItem() {
+export function TodoItem(props) {
   return (
     <li>
-      <span>V</span>
-      <p>Hacer cena</p>
+      <span>{props.completed ? "<" : ">"}</span>
+      <p>{props.text}</p>
       <span>X</span>
     </li>
   );
