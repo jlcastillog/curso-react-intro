@@ -1,9 +1,6 @@
-import { useState } from "react";
 import "../css/TodoSearch.css";
 
-export function TodoSearch() {
-  const [searchValue, setSearchValue] = useState("");
-  console.log(searchValue);
+export function TodoSearch({ searchValue, setSearchValue }) {
   return (
     <div className="todoSearch">
       <input
