@@ -1,0 +1,15 @@
+.todoSearch {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0;
+}
+
+.todoSearch input {
+    padding: 10px;
+    border: none;
+    border-bottom: solid 1px black;
+    text-align: start;
+    outline: none;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,41 @@
+body {
+  background:#f5f1ef;
+}
+
+header {
+  height: 150px;
+  background: linear-gradient(to right, #604385, #526194);
+  color: white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+main {
+  background: #f7f7ff;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin: 0;
+}
+
+.searchSection {
+  position: relative;
+  top: -60px;
+  background: white;
+  margin: 0 20px 20px 20px;
+  border-radius: 25px;
+}
+
+.todoListSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -60px;
+  background: white;
+  margin: 0 20px 20px 20px;
+  border-radius: 25px;
+}

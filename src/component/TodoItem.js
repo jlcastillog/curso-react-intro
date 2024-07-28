@@ -1,9 +1,11 @@
+import "../css/TodoItem.css"
+
 export function TodoItem(props) {
   return (
-    <li>
-      <span>{props.completed ? "<" : ">"}</span>
-      <p>{props.text}</p>
-      <span>X</span>
+    <li className="todoItem">
+      <span className={props.completed ? "todoItemChecked" : "todoItemUnchecked"} ></span>
+      <p className="textItem">{props.text}</p>
+      <span className="removeItemButton"></span>
     </li>
   );
 }

@@ -1,3 +1,5 @@
+import "../css/TodoList.css"
+
 export function TodoList(props) {
-  return <ul>{props.children}</ul>;
+  return <ul className="todoList">{props.children}</ul>;
 }
