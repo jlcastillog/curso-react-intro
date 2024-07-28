@@ -3,4 +3,9 @@
     text-align: center;
     margin: 0;
     padding: 48px;
+    font-weight: 400;
+}
+
+.todoCounter span {
+    font-weight: 800;
 }
