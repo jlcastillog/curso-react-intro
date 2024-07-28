@@ -29,6 +29,10 @@
     width: 400px;
 }
 
+.textItemCompleted{
+    text-decoration-line:line-through;
+}
+
 .removeItemButton {
     display: inline-block;
     width: 25px;
