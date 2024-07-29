@@ -5,20 +5,14 @@ export function TodoItem(props) {
     <li className="todoItem">
       <span
         className={props.completed ? "todoItemChecked" : "todoItemUnchecked"}
+        onClick={props.onComplete}
       ></span>
       <p className={`textItem ${props.completed ? "textItemCompleted" : ""}`}>
         {props.text}
       </p>
       <span
         className="removeItemButton"
-        onClick={() => {
-          const currentTodosClone = [...props.todos];
-          const index = currentTodosClone.findIndex(
-            (todo) => todo.text === props.text
-          );
-          currentTodosClone.splice(index, 1);
-          props.setTodos(currentTodosClone);
-        }}
+        onClick={props.onRemoveTodo}
       ></span>
     </li>
   );

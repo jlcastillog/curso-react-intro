@@ -3,7 +3,8 @@ import { TodoSearch } from "./component/TodoSearch";
 import { TodoList } from "./component/TodoList";
 import { TodoItem } from "./component/TodoItem";
 import { CreateTodoButton } from "./component/CreateTodoButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 
 const defaultTodos = [
   { text: "Cortar cebolla", completed: true },
@@ -16,6 +17,13 @@ const defaultTodos = [
 function App() {
   const [todos, setTodos] = useState(defaultTodos);
   const [searchValue, setSearchValue] = useState("");
+  const [allCompleted, setAllCompleted] = useState(false);
+
+  useEffect(() => {
+    if (allCompleted) {
+      confetti();
+    }
+  }, [allCompleted]);
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -23,6 +31,26 @@ function App() {
   const searchTodos = todos.filter((todo) => {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   });
+
+  const completeTodo = (text) => {
+    const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => todo.text === text);
+    newTodos[index].completed = true;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = (text) => {
+    const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => todo.text === text);
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
+  if (completedTodos === totalTodos) {
+    if (!allCompleted) {
+      setAllCompleted(true);
+    }
+  }
 
   return (
     <>
@@ -45,6 +73,8 @@ function App() {
                 key={todo.text}
                 text={todo.text}
                 completed={todo.completed}
+                onComplete={() => completeTodo(todo.text)}
+                onRemoveTodo={() => removeTodo(todo.text)}
                 todos={todos}
                 setTodos={setTodos}
               />
