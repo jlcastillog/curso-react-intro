@@ -19,12 +19,6 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
 
-  useEffect(() => {
-    if (allCompleted) {
-      confetti();
-    }
-  }, [allCompleted]);
-
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
@@ -59,7 +53,11 @@ function App() {
       </header>
       <main>
         <section className="searchSection">
-          <TodoCounter nCompleted={completedTodos} totalCount={totalTodos} />
+          <TodoCounter
+            nCompleted={completedTodos}
+            totalCount={totalTodos}
+            allCompleted={allCompleted}
+          />
           <TodoSearch
             searchValue={searchValue}
             setSearchValue={setSearchValue}
@@ -67,7 +65,7 @@ function App() {
         </section>
 
         <section className="todoListSection">
-          <TodoList>
+          <TodoList allCompleted={allCompleted}>
             {searchTodos.map((todo) => (
               <TodoItem
                 key={todo.text}
