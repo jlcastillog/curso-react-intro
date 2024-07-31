@@ -1,0 +1,18 @@
+.todoItemChecked {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('../assets/icons/check.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.todoItemUnchecked {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('../assets/icons/uncheck.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+

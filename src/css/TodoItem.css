@@ -7,37 +7,10 @@
     border-bottom: solid 1px gray;
 }
 
-.todoItemChecked {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    background-image: url('../assets/icons/check.svg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-.todoItemUnchecked {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    background-image: url('../assets/icons/uncheck.svg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
 .textItem {
     width: 400px;
 }
 
 .textItemCompleted{
     text-decoration-line:line-through;
-}
-
-.removeItemButton {
-    display: inline-block;
-    width: 28px;
-    height: 28px;
-    background-image: url('../assets/icons/trash-x.svg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
 }

@@ -1,0 +1,8 @@
+.removeItemButton {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../assets/icons/trash-x.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
