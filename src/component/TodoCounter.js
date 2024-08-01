@@ -1,7 +1,6 @@
 import "../css/TodoCounter.css";
 
 export function TodoCounter({ nCompleted, totalCount, allCompleted }) {
-  console.log(allCompleted)
   return (
     <>
       {!allCompleted ? (

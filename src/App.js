@@ -3,9 +3,8 @@ import { TodoSearch } from "./component/TodoSearch";
 import { TodoList } from "./component/TodoList";
 import { TodoItem } from "./component/TodoItem";
 import { CreateTodoButton } from "./component/CreateTodoButton";
-import { useState, useEffect } from "react";
-import { useLocalStorage } from "./hooks/useLocalStorage"
-import confetti from "canvas-confetti";
+import { useState } from "react";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 /* const defaultTodos = [
   { text: "Cortar cebolla", completed: true },
@@ -19,7 +18,6 @@ localStorage.setItem('TODOS_V1', stringifyTodos) */
 // localStorage.removeItem('TODOS_V1')
 
 function App() {
-
   const [todos, saveTodos] = useLocalStorage("TODO_V1", []);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
