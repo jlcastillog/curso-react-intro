@@ -6,38 +6,48 @@ import { CreateTodoButton } from "./component/CreateTodoButton";
 import { useState, useEffect } from "react";
 import confetti from "canvas-confetti";
 
-const defaultTodos = [
+/* const defaultTodos = [
   { text: "Cortar cebolla", completed: true },
   { text: "Tomar el Curso de Intro a React.js", completed: false },
   { text: "Llorar con la Llorona", completed: false },
   { text: "Comprar pan", completed: false },
   { text: "Lavar ropa", completed: true },
 ];
+const stringifyTodos = JSON.stringify(defaultTodos)
+localStorage.setItem('TODOS_V1', stringifyTodos) */
+// localStorage.removeItem('TODOS_V1')
 
 function App() {
-  const [todos, setTodos] = useState(defaultTodos);
+  const parsedTodos = JSON.parse(localStorage.getItem("TODOS_V1")) ?? [];
+
+  const [todos, setTodos] = useState(parsedTodos);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
 
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
+  const completedTodos = todos?.filter((todo) => !!todo.completed).length;
+  const totalTodos = todos?.length;
 
-  const searchTodos = todos.filter((todo) => {
+  const searchTodos = todos?.filter((todo) => {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   });
+
+  const saveTodos = (newTodos) => {
+    localStorage.set("TODOS_V1", JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
 
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const index = newTodos.findIndex((todo) => todo.text === text);
     newTodos[index].completed = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const removeTodo = (text) => {
     const newTodos = [...todos];
     const index = newTodos.findIndex((todo) => todo.text === text);
     newTodos.splice(index, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   if (completedTodos === totalTodos) {
@@ -66,7 +76,7 @@ function App() {
 
         <section className="todoListSection">
           <TodoList allCompleted={allCompleted}>
-            {searchTodos.map((todo) => (
+            {searchTodos?.map((todo) => (
               <TodoItem
                 key={todo.text}
                 text={todo.text}
@@ -74,7 +84,7 @@ function App() {
                 onComplete={() => completeTodo(todo.text)}
                 onRemoveTodo={() => removeTodo(todo.text)}
                 todos={todos}
-                setTodos={setTodos}
+                setTodos={saveTodos}
               />
             ))}
           </TodoList>
