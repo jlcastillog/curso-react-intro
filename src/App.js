@@ -1,8 +1,8 @@
-import { TodoCounter } from "./component/TodoCounter";
-import { TodoSearch } from "./component/TodoSearch";
-import { TodoList } from "./component/TodoList";
-import { TodoItem } from "./component/TodoItem";
-import { CreateTodoButton } from "./component/CreateTodoButton";
+import { TodoCounter } from "./components/TodoCounter";
+import { TodoSearch } from "./components/TodoSearch";
+import { TodoList } from "./components/TodoList";
+import { TodoItem } from "./components/TodoItem";
+import { CreateTodoButton } from "./components/CreateTodoButton";
 import { useState } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
