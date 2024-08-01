@@ -4,6 +4,7 @@ import { TodoList } from "./component/TodoList";
 import { TodoItem } from "./component/TodoItem";
 import { CreateTodoButton } from "./component/CreateTodoButton";
 import { useState, useEffect } from "react";
+import { useLocalStorage } from "./hooks/useLocalStorage"
 import confetti from "canvas-confetti";
 
 /* const defaultTodos = [
@@ -18,9 +19,8 @@ localStorage.setItem('TODOS_V1', stringifyTodos) */
 // localStorage.removeItem('TODOS_V1')
 
 function App() {
-  const parsedTodos = JSON.parse(localStorage.getItem("TODOS_V1")) ?? [];
 
-  const [todos, setTodos] = useState(parsedTodos);
+  const [todos, saveTodos] = useLocalStorage("TODO_V1", []);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
 
@@ -30,11 +30,6 @@ function App() {
   const searchTodos = todos?.filter((todo) => {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   });
-
-  const saveTodos = (newTodos) => {
-    localStorage.set("TODOS_V1", JSON.stringify(newTodos));
-    setTodos(newTodos);
-  };
 
   const completeTodo = (text) => {
     const newTodos = [...todos];
