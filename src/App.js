@@ -1,10 +1,6 @@
-import { TodoCounter } from "./components/TodoCounter";
-import { TodoSearch } from "./components/TodoSearch";
-import { TodoList } from "./components/TodoList";
-import { TodoItem } from "./components/TodoItem";
-import { CreateTodoButton } from "./components/CreateTodoButton";
 import { useState } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import { ApiUI } from "./AppUI";
 
 /* const defaultTodos = [
   { text: "Cortar cebolla", completed: true },
@@ -49,43 +45,17 @@ function App() {
     }
   }
 
-  return (
-    <>
-      <header>
-        <h1>TODO List</h1>
-      </header>
-      <main>
-        <section className="searchSection">
-          <TodoCounter
-            nCompleted={completedTodos}
-            totalCount={totalTodos}
-            allCompleted={allCompleted}
-          />
-          <TodoSearch
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
-        </section>
-
-        <section className="todoListSection">
-          <TodoList allCompleted={allCompleted}>
-            {searchTodos?.map((todo) => (
-              <TodoItem
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onRemoveTodo={() => removeTodo(todo.text)}
-                todos={todos}
-                setTodos={saveTodos}
-              />
-            ))}
-          </TodoList>
-          <CreateTodoButton />
-        </section>
-      </main>
-    </>
-  );
+  return <ApiUI 
+  completedTodos={completedTodos}
+  totalTodos={totalTodos}
+  allCompleted={allCompleted}
+  searchValue={searchValue}
+  setSearchValue={setSearchValue}
+  searchTodos={searchTodos}
+  completeTodo={completeTodo}
+  removeTodo={removeTodo}
+  todos={todos}
+  saveTodos={saveTodos}/>;
 }
 
 export default App;
