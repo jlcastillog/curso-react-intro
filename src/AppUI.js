@@ -15,6 +15,8 @@ export function ApiUI({
   removeTodo,
   todos,
   saveTodos,
+  loading,
+  error,
 }) {
   return (
     <>
@@ -36,6 +38,10 @@ export function ApiUI({
 
         <section className="todoListSection">
           <TodoList allCompleted={allCompleted}>
+            {loading && <p>Estamos cargando...</p>}
+            {error && <p>Hubo un error!!</p>}
+            {!loading && searchTodos.length === 0 && <p>Crea tu primer Todo</p>}
+
             {searchTodos?.map((todo) => (
               <TodoItem
                 key={todo.text}

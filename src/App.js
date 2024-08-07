@@ -14,7 +14,12 @@ localStorage.setItem('TODOS_V1', stringifyTodos) */
 // localStorage.removeItem('TODOS_V1')
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage("TODO_V1", []);
+  const {
+    items: todos,
+    saveItems: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage("TODO_V1", []);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
 
@@ -45,17 +50,22 @@ function App() {
     }
   }
 
-  return <ApiUI 
-  completedTodos={completedTodos}
-  totalTodos={totalTodos}
-  allCompleted={allCompleted}
-  searchValue={searchValue}
-  setSearchValue={setSearchValue}
-  searchTodos={searchTodos}
-  completeTodo={completeTodo}
-  removeTodo={removeTodo}
-  todos={todos}
-  saveTodos={saveTodos}/>;
+  return (
+    <ApiUI
+      completedTodos={completedTodos}
+      totalTodos={totalTodos}
+      allCompleted={allCompleted}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchTodos={searchTodos}
+      completeTodo={completeTodo}
+      removeTodo={removeTodo}
+      todos={todos}
+      saveTodos={saveTodos}
+      loading={loading}
+      error={error}
+    />
+  );
 }
 
 export default App;
