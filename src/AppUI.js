@@ -6,21 +6,20 @@ import { TodosLoading } from "./components/TodosLoading";
 import { TodosError } from "./components/TodosError";
 import { EmptyTodos } from "./components/EmptyTodos";
 import { CreateTodoButton } from "./components/CreateTodoButton";
+import { TodoContext } from "./components/TodoContext";
+import { useContext } from "react";
 
-export function ApiUI({
-  completedTodos,
-  totalTodos,
-  allCompleted,
-  searchValue,
-  setSearchValue,
-  searchTodos,
-  completeTodo,
-  removeTodo,
-  todos,
-  saveTodos,
-  loading,
-  error,
-}) {
+export function ApiUI() {
+  const {
+    allCompleted,
+    searchTodos,
+    completeTodo,
+    removeTodo,
+    todos,
+    saveTodos,
+    loading,
+    error,
+  } = useContext(TodoContext);
   return (
     <>
       <header>
@@ -28,22 +27,15 @@ export function ApiUI({
       </header>
       <main>
         <section className="searchSection">
-          <TodoCounter
-            nCompleted={completedTodos}
-            totalCount={totalTodos}
-            allCompleted={allCompleted}
-          />
-          <TodoSearch
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
+          <TodoCounter />
+          <TodoSearch />
         </section>
 
         <section className="todoListSection">
           <TodoList allCompleted={allCompleted}>
-            {loading && <TodosLoading/>}
-            {error && <TodosError/>}
-            {!loading && searchTodos.length === 0 && <EmptyTodos/>}
+            {loading && <TodosLoading />}
+            {error && <TodosError />}
+            {!loading && searchTodos.length === 0 && <EmptyTodos />}
 
             {searchTodos?.map((todo) => (
               <TodoItem
@@ -57,6 +49,7 @@ export function ApiUI({
               />
             ))}
           </TodoList>
+
           <CreateTodoButton />
         </section>
       </main>
