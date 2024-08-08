@@ -2,6 +2,9 @@ import { TodoCounter } from "./components/TodoCounter";
 import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
+import { TodosLoading } from "./components/TodosLoading";
+import { TodosError } from "./components/TodosError";
+import { EmptyTodos } from "./components/EmptyTodos";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 
 export function ApiUI({
@@ -38,9 +41,9 @@ export function ApiUI({
 
         <section className="todoListSection">
           <TodoList allCompleted={allCompleted}>
-            {loading && <p>Estamos cargando...</p>}
-            {error && <p>Hubo un error!!</p>}
-            {!loading && searchTodos.length === 0 && <p>Crea tu primer Todo</p>}
+            {loading && <TodosLoading/>}
+            {error && <TodosError/>}
+            {!loading && searchTodos.length === 0 && <EmptyTodos/>}
 
             {searchTodos?.map((todo) => (
               <TodoItem

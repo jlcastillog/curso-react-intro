@@ -1,4 +1,6 @@
 .todoList {
+    width: 100%;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-items: center;
