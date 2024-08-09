@@ -1,15 +1,16 @@
 import "../css/CreateTodoButton.css";
+import { TodoContext } from "../components/TodoContext";
+import { useContext } from "react";
 
 export function CreateTodoButton() {
+  const { setOpenModal } = useContext(TodoContext);
   return (
     <button
       title="Crear nueva tarea"
       type="button"
       className="createTodoButton"
       onClick={(event) => {
-        console.log("Le diste al boton de añadir todos");
-        console.log(event);
-        console.log(event.target);
+        setOpenModal(state => !state);
       }}
     ></button>
   );

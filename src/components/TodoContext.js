@@ -13,6 +13,7 @@ function TodoPorvider({ children }) {
   } = useLocalStorage("TODO_V1", []);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const completedTodos = todos?.filter((todo) => !!todo.completed).length;
   const totalTodos = todos?.length;
@@ -56,6 +57,8 @@ function TodoPorvider({ children }) {
         saveTodos,
         loading,
         error,
+        openModal,
+        setOpenModal
       }}
     >
       {children}
