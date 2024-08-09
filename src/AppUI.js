@@ -7,6 +7,7 @@ import { TodosError } from "./components/TodosError";
 import { EmptyTodos } from "./components/EmptyTodos";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { TodoContext } from "./components/TodoContext";
+import { TodoForms } from "./components/TodoForms";
 import { Modal } from "./components/Modal";
 import { useContext } from "react";
 
@@ -20,7 +21,7 @@ export function ApiUI() {
     saveTodos,
     loading,
     error,
-    openModal
+    openModal,
   } = useContext(TodoContext);
   return (
     <>
@@ -54,7 +55,11 @@ export function ApiUI() {
 
           <CreateTodoButton />
 
-          {openModal && <Modal>La funcionalidad de crear TODOs</Modal>}
+          {openModal && (
+            <Modal>
+              <TodoForms />
+            </Modal>
+          )}
         </section>
       </main>
     </>
