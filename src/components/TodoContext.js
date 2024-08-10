@@ -36,11 +36,22 @@ function TodoPorvider({ children }) {
     saveTodos(newTodos);
   };
 
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      text,
+      completed: false,
+    });
+    saveTodos(newTodos);
+  };
+
   if (completedTodos === totalTodos) {
-    if (!allCompleted) {
+    if (!allCompleted && totalTodos !== 0) {
       setAllCompleted(true);
     }
   }
+
+  console.log(allCompleted);
 
   return (
     <TodoContext.Provider
@@ -58,7 +69,8 @@ function TodoPorvider({ children }) {
         loading,
         error,
         openModal,
-        setOpenModal
+        setOpenModal,
+        addTodo,
       }}
     >
       {children}
