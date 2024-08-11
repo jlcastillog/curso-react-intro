@@ -78,3 +78,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Design
 
 https://www.behance.net/gallery/90219979/Todo-List?tracking_source=search_projects|todo+list&l=37
+
+### Deployment notes
+
+Vamos a seguir los pasos de esta clase: [https://platzi.com/home/clases/7395-react/62353-despliegue-de-todo-machine-en-github-pages/](https://platzi.com/home/clases/7395-react/62353-despliegue-de-todo-machine-en-github-pages/)
