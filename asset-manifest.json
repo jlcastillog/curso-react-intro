@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/jlcastillog/curso-react-intro/static/css/main.0a728ea1.css",
-    "main.js": "/jlcastillog/curso-react-intro/static/js/main.b25477b1.js",
-    "index.html": "/jlcastillog/curso-react-intro/index.html",
-    "static/media/trash-x.svg": "/jlcastillog/curso-react-intro/static/media/trash-x.7a851c5f74a207139b0c.svg",
-    "static/media/circle-plus.svg": "/jlcastillog/curso-react-intro/static/media/circle-plus.b9efce447adbb48d5861.svg",
-    "static/media/uncheck.svg": "/jlcastillog/curso-react-intro/static/media/uncheck.b97920daa6bc491369c3.svg",
-    "static/media/check.svg": "/jlcastillog/curso-react-intro/static/media/check.aea59a801fabf6fc25f4.svg",
-    "main.0a728ea1.css.map": "/jlcastillog/curso-react-intro/static/css/main.0a728ea1.css.map",
-    "main.b25477b1.js.map": "/jlcastillog/curso-react-intro/static/js/main.b25477b1.js.map"
+    "main.css": "/curso-react-intro/static/css/main.47a29716.css",
+    "main.js": "/curso-react-intro/static/js/main.b25477b1.js",
+    "index.html": "/curso-react-intro/index.html",
+    "static/media/trash-x.svg": "/curso-react-intro/static/media/trash-x.7a851c5f74a207139b0c.svg",
+    "static/media/circle-plus.svg": "/curso-react-intro/static/media/circle-plus.b9efce447adbb48d5861.svg",
+    "static/media/uncheck.svg": "/curso-react-intro/static/media/uncheck.b97920daa6bc491369c3.svg",
+    "static/media/check.svg": "/curso-react-intro/static/media/check.aea59a801fabf6fc25f4.svg",
+    "main.47a29716.css.map": "/curso-react-intro/static/css/main.47a29716.css.map",
+    "main.b25477b1.js.map": "/curso-react-intro/static/js/main.b25477b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a728ea1.css",
+    "static/css/main.47a29716.css",
     "static/js/main.b25477b1.js"
   ]
 }
