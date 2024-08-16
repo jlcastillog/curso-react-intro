@@ -1,17 +1,33 @@
 body {
   background:#f5f1ef;
+  font-family: "PT Sans", sans-serif;
 }
 
 header {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
   height: 150px;
   background: linear-gradient(to right, #604385, #526194);
   color: white;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
   text-align: center;
   margin: 0;
   padding: 10px;
+}
+
+header span {
+
+  width: 80px;
+  height: 80px;
+  border: #1f05a5 solid, 2px;
+  border-radius: 50%;
+  background-image: url('../assets/icons/logo.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 main {

@@ -26,7 +26,8 @@ export function ApiUI() {
   return (
     <>
       <header>
-        <h1>TODO List</h1>
+        <span></span>
+        <h1>Planify Web App</h1>
       </header>
       <main>
         <section className="searchSection">
