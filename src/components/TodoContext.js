@@ -51,8 +51,6 @@ function TodoPorvider({ children }) {
     }
   }
 
-  console.log(allCompleted);
-
   return (
     <TodoContext.Provider
       value={{
