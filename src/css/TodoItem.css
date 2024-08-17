@@ -1,4 +1,4 @@
-.todoItem{
+.todoItem {
     display: flex;
     flex-direction: row;
     gap: 50px;
@@ -11,6 +11,12 @@
     width: 400px;
 }
 
-.textItemCompleted{
-    text-decoration-line:line-through;
+.textItemCompleted {
+    text-decoration-line: line-through;
+}
+
+@media (max-width: 425px) {
+    .todoItem {
+        width: 80%;
+    }
 }

@@ -1,11 +1,12 @@
 body {
-  background:#f5f1ef;
+  background: #f5f1ef;
   font-family: "PT Sans", sans-serif;
 }
 
 header {
   display: flex;
   justify-content: center;
+  align-content: center;
   gap: 40px;
   height: 150px;
   background: linear-gradient(to right, #604385, #526194);
@@ -54,4 +55,16 @@ main {
   background: white;
   margin: 0 20px 20px 20px;
   border-radius: 25px;
+}
+
+@media (max-width: 425px) {
+  header {
+    gap: 5px;
+  }
+
+  header span {
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+  }
 }

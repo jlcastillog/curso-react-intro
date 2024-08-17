@@ -16,3 +16,15 @@
     background-size: 100% 100%;
 }
 
+
+@media (max-width: 425px) {
+    .todoItemChecked {
+        width: 100px;
+        height: 100px;
+    }
+
+    .todoItemUnchecked {
+        width: 100px;
+        height: 100px;
+    }
+}
