@@ -8,6 +8,10 @@ La rama principal contiene el código con el que eempezamos el curso. En las dem
 
 ¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
 
+## Deployed project
+
+Tu puedes encontrar desplegado mi proeycto en el siguiente enlace: [Planify Web App](https://jlcastillog.github.io/curso-react-intro/)
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
