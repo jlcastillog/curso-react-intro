@@ -8,6 +8,8 @@ import { EmptyTodos } from "./components/EmptyTodos";
 import { CreateTodoButton } from "./components/CreateTodoButton";
 import { TodoContext } from "./components/TodoContext";
 import { TodoForms } from "./components/TodoForms";
+import { TodoHeader } from "./components/TodoHeader";
+import { TodoMain } from "./components/TodoMain";
 import { Modal } from "./components/Modal";
 import { useContext } from "react";
 
@@ -22,6 +24,12 @@ export function ApiUI() {
     loading,
     error,
     openModal,
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    setOpenModal,
+    addTodo,
   } = useContext(TodoContext);
   return (
     <>
@@ -30,12 +38,19 @@ export function ApiUI() {
         <h1>Planify Web App</h1>
       </header>
       <main>
-        <section className="searchSection">
-          <TodoCounter />
-          <TodoSearch />
-        </section>
+        <TodoHeader>
+          <TodoCounter
+            allCompleted={allCompleted}
+            completedTodos={completedTodos}
+            totalTodos={totalTodos}
+          />
+          <TodoSearch
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
+        </TodoHeader>
 
-        <section className="todoListSection">
+        <TodoMain>
           <TodoList allCompleted={allCompleted}>
             {loading && <TodosLoading />}
             {error && <TodosError />}
@@ -54,14 +69,14 @@ export function ApiUI() {
             ))}
           </TodoList>
 
-          <CreateTodoButton />
+          <CreateTodoButton setOpenModal={setOpenModal} />
 
           {openModal && (
             <Modal>
-              <TodoForms />
+              <TodoForms setOpenModal={setOpenModal} addTodo={addTodo} />
             </Modal>
           )}
-        </section>
+        </TodoMain>
       </main>
     </>
   );
