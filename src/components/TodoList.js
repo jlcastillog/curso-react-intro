@@ -9,5 +9,13 @@ export function TodoList(props) {
     }
   }, [props.allCompleted]);
 
-  return <ul className="todoList">{props.children}</ul>;
+  return (
+    <>
+      {props.error && props.onError()}
+      {props.loading && props.onLoading()}
+      {!props.loading && props.searchTodos.length === 0 && props.onEmptyTodos()}
+
+      <ul className="todoList">{props.searchTodos?.map(props.render)}</ul>
+    </>
+  );
 }
