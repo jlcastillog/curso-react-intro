@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import confetti from "canvas-confetti";
 
 export function TodoList(props) {
+
+  const renderFunc = props.children || props.render
+
   useEffect(() => {
     if (props.allCompleted) {
       confetti();
@@ -13,9 +16,13 @@ export function TodoList(props) {
     <>
       {props.error && props.onError()}
       {props.loading && props.onLoading()}
-      {!props.loading && props.searchTodos.length === 0 && props.onEmptyTodos()}
+      {!props.loading && !props.totalTodos && props.onEmptyTodos()}
+      {!props.loading &&
+        !!props.totalTodos &&
+        !props.searchTodos.length &&
+        props.onEmptySearchResults(props.searchText)}
 
-      <ul className="todoList">{props.searchTodos?.map(props.render)}</ul>
+      <ul className="todoList">{props.searchTodos?.map(renderFunc)}</ul>
     </>
   );
 }

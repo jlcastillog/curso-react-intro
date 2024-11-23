@@ -1,6 +1,6 @@
 import "../css/TodoSearch.css";
 
-export function TodoSearch({ searchValue, setSearchValue }) {
+export function TodoSearch({ searchValue, setSearchValue, loading }) {
   return (
     <div className="todoSearch">
       <input
@@ -10,6 +10,7 @@ export function TodoSearch({ searchValue, setSearchValue }) {
           const newSearchValue = event.target.value;
           setSearchValue(newSearchValue);
         }}
+        disabled={loading}
       />
     </div>
   );

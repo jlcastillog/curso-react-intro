@@ -38,7 +38,7 @@ function App() {
         <h1>Planify Web App</h1>
       </header>
       <main>
-        <TodoHeader>
+        <TodoHeader loading={loading}>
           <TodoCounter
             allCompleted={allCompleted}
             completedTodos={completedTodos}
@@ -55,10 +55,16 @@ function App() {
             error={error}
             loading={loading}
             searchTodos={searchTodos}
+            totalTodos={totalTodos}
+            searchText={searchValue}
             onError={() => <TodosError />}
             onLoading={() => <TodosLoading />}
             onEmptyTodos={() => <EmptyTodos />}
-            render={(todo) => (
+            onEmptySearchResults={(searchText) => (
+              <p>No hay resultados para "{searchText}"</p>
+            )}
+          >
+            {(todo) => (
               <TodoItem
                 key={todo.text}
                 text={todo.text}
@@ -69,25 +75,7 @@ function App() {
                 setTodos={saveTodos}
               />
             )}
-          />
-
-          {/* <TodoList allCompleted={allCompleted}>
-            {loading && <TodosLoading />}
-            {error && <TodosError />}
-            {!loading && searchTodos.length === 0 && <EmptyTodos />}
-
-            {searchTodos?.map((todo) => (
-              <TodoItem
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onRemoveTodo={() => removeTodo(todo.text)}
-                todos={todos}
-                setTodos={saveTodos}
-              />
-            ))}
-          </TodoList> */}
+          </TodoList>
 
           <CreateTodoButton setOpenModal={setOpenModal} />
 
