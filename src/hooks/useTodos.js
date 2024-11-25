@@ -5,8 +5,9 @@ export function useTodo() {
   const {
     items: todos,
     saveItems: saveTodos,
+    synchronizeItems: synchronizeTodos,
     loading,
-    error,
+    error
   } = useLocalStorage("TODO_V1", []);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
@@ -64,5 +65,6 @@ export function useTodo() {
     openModal,
     setOpenModal,
     addTodo,
+    synchronizeTodos
   };
 }

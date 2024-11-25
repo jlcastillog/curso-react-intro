@@ -11,6 +11,7 @@ import { TodoForms } from "./components/TodoForms";
 import { TodoHeader } from "./components/TodoHeader";
 import { TodoMain } from "./components/TodoMain";
 import { Modal } from "./components/Modal";
+import { ChangeAlertWithStorageListener } from "./components/ChangeAlert";
 
 function App() {
   const {
@@ -29,6 +30,7 @@ function App() {
     setSearchValue,
     setOpenModal,
     addTodo,
+    synchronizeTodos,
   } = useTodo();
 
   return (
@@ -86,6 +88,7 @@ function App() {
           )}
         </TodoMain>
       </main>
+      <ChangeAlertWithStorageListener synchronize={synchronizeTodos} />
     </>
   );
 }
