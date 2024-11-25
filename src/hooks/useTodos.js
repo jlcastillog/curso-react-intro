@@ -1,15 +1,13 @@
-import { createContext } from "react";
 import { useState } from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = createContext();
-
-function TodoPorvider({ children }) {
+export function useTodo() {
   const {
     items: todos,
     saveItems: saveTodos,
+    synchronizeItems: synchronizeTodos,
     loading,
-    error,
+    error
   } = useLocalStorage("TODO_V1", []);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
@@ -51,29 +49,22 @@ function TodoPorvider({ children }) {
     }
   }
 
-  return (
-    <TodoContext.Provider
-      value={{
-        completedTodos,
-        totalTodos,
-        allCompleted,
-        searchValue,
-        setSearchValue,
-        searchTodos,
-        completeTodo,
-        removeTodo,
-        todos,
-        saveTodos,
-        loading,
-        error,
-        openModal,
-        setOpenModal,
-        addTodo,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
+  return {
+    completedTodos,
+    totalTodos,
+    allCompleted,
+    searchValue,
+    setSearchValue,
+    searchTodos,
+    completeTodo,
+    removeTodo,
+    todos,
+    saveTodos,
+    loading,
+    error,
+    openModal,
+    setOpenModal,
+    addTodo,
+    synchronizeTodos
+  };
 }
-
-export { TodoContext, TodoPorvider };

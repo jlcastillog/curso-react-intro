@@ -1,9 +1,6 @@
-import { useContext } from "react";
 import "../css/TodoSearch.css";
-import { TodoContext } from "./TodoContext";
 
-export function TodoSearch() {
-  const { searchValue, setSearchValue } = useContext(TodoContext);
+export function TodoSearch({ searchValue, setSearchValue, loading }) {
   return (
     <div className="todoSearch">
       <input
@@ -13,6 +10,7 @@ export function TodoSearch() {
           const newSearchValue = event.target.value;
           setSearchValue(newSearchValue);
         }}
+        disabled={loading}
       />
     </div>
   );
