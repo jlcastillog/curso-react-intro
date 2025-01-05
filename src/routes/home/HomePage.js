@@ -67,8 +67,8 @@ function HomePage() {
                 key={todo.text}
                 text={todo.text}
                 completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onRemoveTodo={() => removeTodo(todo.text)}
+                onComplete={() => completeTodo(todo.id)}
+                onRemoveTodo={() => removeTodo(todo.id)}
                 todos={todos}
                 setTodos={saveTodos}
               />

@@ -19,27 +19,28 @@ export function useTodo() {
   const searchTodos = todos?.filter((todo) => {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   });
-
-  const completeTodo = (text) => {
+  
+  const addTodo = (text) => {
     const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => todo.text === text);
+    newTodos.push({
+      id: Date.now().toString(),
+      text,
+      completed: false,
+    });
+    saveTodos(newTodos);
+  };
+  
+  const completeTodo = (id) => {
+    const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => todo.id === id);
     newTodos[index].completed = true;
     saveTodos(newTodos);
   };
 
-  const removeTodo = (text) => {
+  const removeTodo = (id) => {
     const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => todo.text === text);
+    const index = newTodos.findIndex((todo) => todo.id === id);
     newTodos.splice(index, 1);
-    saveTodos(newTodos);
-  };
-
-  const addTodo = (text) => {
-    const newTodos = [...todos];
-    newTodos.push({
-      text,
-      completed: false,
-    });
     saveTodos(newTodos);
   };
 
