@@ -1,0 +1,15 @@
+.editItemButton {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../assets/icons/pencil.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@media (max-width: 425px) {
+    .editItemButton {
+        width: 100px;
+        height: 100px;
+    }
+}

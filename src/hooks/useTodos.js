@@ -11,7 +11,6 @@ export function useTodo() {
   } = useLocalStorage("TODO_V1", []);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
 
   const completedTodos = todos?.filter((todo) => !!todo.completed).length;
   const totalTodos = todos?.length;
@@ -20,26 +19,40 @@ export function useTodo() {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   });
 
-  const completeTodo = (text) => {
+  const getTodo = (id) => {  
+    const index = todos.findIndex((todo) => todo.id === id);
+    return todos[index]
+  }
+
+  
+  const addTodo = (text) => {
     const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => todo.text === text);
+    newTodos.push({
+      id: Date.now().toString(),
+      text,
+      completed: false,
+    });
+    saveTodos(newTodos);
+  };
+  
+  const completeTodo = (id) => {
+    const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => todo.id === id);
     newTodos[index].completed = true;
     saveTodos(newTodos);
   };
 
-  const removeTodo = (text) => {
+  const editTodo = (id, newText) => {
     const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => todo.text === text);
-    newTodos.splice(index, 1);
+    const index = newTodos.findIndex((todo) => todo.id === id);
+    newTodos[index].text = newText;
     saveTodos(newTodos);
   };
 
-  const addTodo = (text) => {
+  const removeTodo = (id) => {
     const newTodos = [...todos];
-    newTodos.push({
-      text,
-      completed: false,
-    });
+    const index = newTodos.findIndex((todo) => todo.id === id);
+    newTodos.splice(index, 1);
     saveTodos(newTodos);
   };
 
@@ -54,17 +67,17 @@ export function useTodo() {
     totalTodos,
     allCompleted,
     searchValue,
-    setSearchValue,
     searchTodos,
-    completeTodo,
-    removeTodo,
     todos,
-    saveTodos,
     loading,
     error,
-    openModal,
-    setOpenModal,
+    setSearchValue,
+    completeTodo,
+    removeTodo,
+    saveTodos,
     addTodo,
-    synchronizeTodos
+    synchronizeTodos,
+    editTodo,
+    getTodo
   };
 }

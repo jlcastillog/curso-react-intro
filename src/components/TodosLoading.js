@@ -3,7 +3,7 @@ import "../css/TodosLoading.css";
 export function TodosLoading() {
   return (
     <li className="skeleton-loader">
-      <p>Loading...</p>
+      <p>Cargando...</p>
     </li>
   );
 }

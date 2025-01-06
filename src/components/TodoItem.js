@@ -1,6 +1,7 @@
-import "../css/TodoItem.css";
 import { TodoCheckIcon } from "./icons/TodoCheckIcon";
 import { TodoRemoveIcon } from "./icons/TodoRemoveIcon";
+import { TodoEditIcon } from "./icons/TodoEditIcon";
+import "../css/TodoItem.css";
 
 export function TodoItem(props) {
   return (
@@ -9,7 +10,10 @@ export function TodoItem(props) {
       <p className={`textItem ${props.completed ? "textItemCompleted" : ""}`}>
         {props.text}
       </p>
-      <TodoRemoveIcon onclick={props.onRemoveTodo} />
+      <div className="rightButtons">
+        <TodoEditIcon onclick={props.onEdit} />
+        <TodoRemoveIcon onclick={props.onRemoveTodo} />
+      </div>
     </li>
   );
 }
