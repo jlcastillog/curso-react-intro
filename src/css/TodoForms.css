@@ -1,7 +1,7 @@
 form {
     width: 90%;
-    max-width: 300px;
-    background-color: #fff;
+    max-width: 500px;
+    margin: 0 auto;
     padding: 33px 40px;
     display: flex;
     justify-content: center;
@@ -26,7 +26,7 @@ textarea {
     font-size: 20px;
     text-align: center;
     padding: 12px;
-    height: 96px;
+    height: 150px;
     width: calc(100% - 25px);
 }
 
@@ -67,5 +67,7 @@ textarea:focus {
 }
 
 .TodoForm-button--cancel {
-    background: 0 0
+    background: 0 0;
+    border: 1px solid #202300;
+    
 }

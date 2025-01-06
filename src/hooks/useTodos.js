@@ -11,7 +11,6 @@ export function useTodo() {
   } = useLocalStorage("TODO_V1", []);
   const [searchValue, setSearchValue] = useState("");
   const [allCompleted, setAllCompleted] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
 
   const completedTodos = todos?.filter((todo) => !!todo.completed).length;
   const totalTodos = todos?.length;
@@ -19,6 +18,12 @@ export function useTodo() {
   const searchTodos = todos?.filter((todo) => {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   });
+
+  const getTodo = (id) => {  
+    const index = todos.findIndex((todo) => todo.id === id);
+    return todos[index]
+  }
+
   
   const addTodo = (text) => {
     const newTodos = [...todos];
@@ -34,6 +39,13 @@ export function useTodo() {
     const newTodos = [...todos];
     const index = newTodos.findIndex((todo) => todo.id === id);
     newTodos[index].completed = true;
+    saveTodos(newTodos);
+  };
+
+  const editTodo = (id, newText) => {
+    const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => todo.id === id);
+    newTodos[index].text = newText;
     saveTodos(newTodos);
   };
 
@@ -55,17 +67,17 @@ export function useTodo() {
     totalTodos,
     allCompleted,
     searchValue,
-    setSearchValue,
     searchTodos,
-    completeTodo,
-    removeTodo,
     todos,
-    saveTodos,
     loading,
     error,
-    openModal,
-    setOpenModal,
+    setSearchValue,
+    completeTodo,
+    removeTodo,
+    saveTodos,
     addTodo,
-    synchronizeTodos
+    synchronizeTodos,
+    editTodo,
+    getTodo
   };
 }

@@ -1,6 +1,6 @@
-import "../css/TodoList.css";
 import { useEffect } from "react";
 import confetti from "canvas-confetti";
+import "../css/TodoList.css";
 
 export function TodoList(props) {
   const renderFunc = props.children || props.render;

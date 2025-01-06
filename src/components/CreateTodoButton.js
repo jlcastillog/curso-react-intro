@@ -1,14 +1,12 @@
 import "../css/CreateTodoButton.css";
 
-export function CreateTodoButton({ setOpenModal }) {
+export function CreateTodoButton(props) {
   return (
     <button
       title="Crear nueva tarea"
       type="button"
       className="createTodoButton"
-      onClick={(event) => {
-        setOpenModal((state) => !state);
-      }}
+      onClick={props.onclick}
     ></button>
   );
 }
