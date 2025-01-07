@@ -42,6 +42,7 @@ function HomePage() {
           <TodoSearch
             searchValue={searchValue}
             setSearchValue={setSearchValue}
+            onSearchChanged={(search) => navigate(`/${search}`)}
           />
         </TodoHeader>
 
