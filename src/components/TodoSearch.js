@@ -1,26 +1,28 @@
-
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import "../css/TodoSearch.css";
 
-export function TodoSearch({ searchValue, setSearchValue, loading, onSearchChanged }) {
+export function TodoSearch({ searchValue, setSearchValue, loading, params, setParams }) {
 
-  const { search } = useParams();
+  const onSearchChanged = (event) => {
+    const newSearchValue = event.target.value;
+    setSearchValue(newSearchValue);
+    let params = {
+      search: event.target.value,
+    };
+    setParams(params);
+  };
 
-  if (search && search !== searchValue) {
+  useEffect(() => {
+    const search = params.get("search") ?? "";
     setSearchValue(search);
-    onSearchChanged(search);
-  }
+  }, [params]);
 
   return (
     <div className="todoSearch">
       <input
         placeholder="Sacar al perro a pasear"
         value={searchValue}
-        onChange={(event) => {
-          const newSearchValue = event.target.value;
-          setSearchValue(newSearchValue);
-          onSearchChanged(newSearchValue);
-        }}
+        onChange={onSearchChanged}
         disabled={loading}
       />
     </div>
