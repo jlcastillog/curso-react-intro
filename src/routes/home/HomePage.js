@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTodo } from "../../hooks/useTodos";
 import { TodoCounter } from "../../components/TodoCounter";
 import { TodoSearch } from "../../components/TodoSearch";
@@ -14,6 +14,8 @@ import { ChangeAlertWithStorageListener } from "../../components/ChangeAlert";
 
 function HomePage() {
   const navigate = useNavigate();
+  const [params, setParams] = useSearchParams();
+
   const {
     allCompleted,
     searchTodos,
@@ -42,6 +44,8 @@ function HomePage() {
           <TodoSearch
             searchValue={searchValue}
             setSearchValue={setSearchValue}
+            params={params}
+            setParams={setParams}
           />
         </TodoHeader>
 
