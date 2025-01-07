@@ -45,6 +45,7 @@ function HomePage() {
             searchValue={searchValue}
             setSearchValue={setSearchValue}
             params={params}
+            loading={loading}
             setParams={setParams}
           />
         </TodoHeader>
